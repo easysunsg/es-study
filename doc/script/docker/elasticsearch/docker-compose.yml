@@ -1,0 +1,35 @@
+networks:
+  ek-network:
+    external: true
+services:
+  elasticsearch:
+    container_name: elasticsearch-saRr
+    deploy:
+      resources:
+        limits:
+          cpus: "0"
+          memory: "0"
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=Elastic_Kiz5eX
+      - xpack.security.enabled=true
+      - ES_JAVA_OPTS=-Xlog:disable -Xlog:gc=debug:stderr -Xms512m -Xmx512m
+    image: elasticsearch:8.19.0
+    labels:
+      createdBy: Apps
+    networks:
+      - ek-network
+    ports:
+      - "9200:9200"
+    restart: always
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nofile:
+        hard: 65536
+        soft: 65536
+    volumes:
+      - ./data/data:/usr/share/elasticsearch/data
+      - ./data/backup:/usr/share/elasticsearch/backup
+      - ./data/conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml

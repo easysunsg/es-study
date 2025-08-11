@@ -1,0 +1,10 @@
+# 服务端口
+server.port: 5601
+# 服务IP
+server.host: "0.0.0.0"
+# ES
+elasticsearch.hosts: ["http://192.168.200.157:9200"]
+monitoring.ui.container.elasticsearch.enabled: true
+elasticsearch.serviceAccountToken: AAEAAWVsYXN0aWMva2liYW5hL2tpYmFuYTAxOlB2S0NBdWtsUWc2MUlIS1c0NHJuMGc
+# 汉化
+i18n.locale: "zh-CN"
