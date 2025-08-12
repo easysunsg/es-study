@@ -104,4 +104,16 @@ public class ProductService {
                 .map(SearchHit::getContent)
                 .collect(Collectors.toList());
     }
+
+    /**
+     * 更新产品名称
+     */
+    public void updateProductName(String id, String name) {
+        Optional<Product> productOpt = productRepository.findById(id);
+        if (productOpt.isPresent()) {
+            Product product = productOpt.get();
+            product.setName(name);
+            productRepository.save(product);
+        }
+    }
 }

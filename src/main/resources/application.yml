@@ -2,11 +2,11 @@ spring:
   application:
     name: es-study
   elasticsearch:
-    uris: http://192.168.200.157:9202
+    uris: http://192.168.200.157:9200
     connection-timeout: 1s
     socket-timeout: 30s
     username: elastic
-    password: Elastic_rmRJXK
+    password: Elastic_Kiz5eX
 logging:
   level:
     tracer: TRACE

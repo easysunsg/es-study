@@ -24,4 +24,5 @@ public interface ProductRepository extends ElasticsearchRepository<Product, Stri
      * 根据描述搜索（模糊匹配）
      */
     Page<Product> findByDescription(String description, Pageable pageable);
+
 }
