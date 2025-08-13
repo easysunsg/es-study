@@ -86,6 +86,7 @@ es-study/
    ```
 
 ### 启动Kibana
+
 1. 安装Kibana
    ```shell
    # 修改doc/script/docker/kibana/docker-compose.yml和doc/script/docker/kibana/data/conf/kibana.yml中的两个ip地址成自己的
@@ -93,15 +94,26 @@ es-study/
    ```
 2. 访问Kibana，访问 http://ip:5601，输入账号密码elastic/Elastic_Kiz5eX，输出以下信息说明成功
    ![img.png](doc/script/imgs/img-success.png)
+
 ### 启动项目
+
 1. 执行src/test/java/org/fct/es/EsStudyApplicationTests.java中testSave方法，kibana中可以看到数据
    ![img.png](doc/script/imgs/img-testSave.png)
 2. 可继续执行其他方法，查看数据是否正确
-   - contextLoads 测试查询所有数据
-   - testSaveOne 测试保存一条数据
-   - testSaveAll 测试保存多条数据
-   - testFindByName 测试根据名称查询数据
-   - testFindByDescriptionContaining 测试根据描述查询数据
-   - testFindByCategoryAndPriceRange 测试根据分类和价格范围查询数据
-   - testDeleteAll testFindById 测试根据id查询数据
-   - testUpdateNameById 修改名称
+    - contextLoads 测试查询所有数据
+    - testSaveOne 测试保存一条数据
+    - testSaveAll 测试保存多条数据
+    - testFindByName 测试根据名称查询数据
+    - testFindByDescriptionContaining 测试根据描述查询数据
+    - testFindByCategoryAndPriceRange 测试根据分类和价格范围查询数据
+    - testDeleteAll testFindById 测试根据id查询数据
+    - testUpdateNameById 修改名称
+
+### 安装ik分词器
+ik分词器下载地址：https://release.infinilabs.com/analysis-ik/stable/
+```shell
+docker exec -it elasticsearch-saRr /bin/bash
+bin/elasticsearch-plugin install https://get.infini.cloud/elasticsearch/analysis-ik/8.19.0
+exit
+docker restart elasticsearch-saRr
+```

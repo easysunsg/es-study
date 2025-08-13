@@ -13,21 +13,20 @@ import java.time.LocalDateTime;
 @Document(indexName = "products")
 public class Product {
 
-    @Id
-    private String id;
+  @Id private String id;
 
-    @Field(type = FieldType.Text)
-    private String name;
+  @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
+  private String name;
 
-    @Field(type = FieldType.Text)
-    private String description;
+  @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
+  private String description;
 
-    @Field(type = FieldType.Double)
-    private Double price;
+  @Field(type = FieldType.Double)
+  private Double price;
 
-    @Field(type = FieldType.Keyword)
-    private String category;
+  @Field(type = FieldType.Keyword)
+  private String category;
 
-    @Field(type = FieldType.Date, format = DateFormat.date_hour_minute_second)
-    private LocalDateTime createTime;
+  @Field(type = FieldType.Date, format = DateFormat.date_hour_minute_second)
+  private LocalDateTime createTime;
 }
